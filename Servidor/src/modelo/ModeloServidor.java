@@ -112,11 +112,17 @@ public class ModeloServidor extends Thread {
     public int getPUERTO() {
         return PUERTO;
     }
+
+    public Socket getSocket() {
+        return socket;
+    }
     
     
     
     
-    //pendiente modificar 
+    
+    
+    //pendiente modificar a SWITCH
     public void run(){
         while(true){
              String mensaje = recibirMensaje();

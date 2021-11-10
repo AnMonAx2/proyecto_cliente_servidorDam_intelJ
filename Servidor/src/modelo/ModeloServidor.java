@@ -164,7 +164,7 @@ public class ModeloServidor extends Thread {
     //!email.equals("") || !password.equals("")
     private boolean comprobarLogin(String email, String password) {
     
-        boolean isdatos_login=false;
+        boolean esta_registrado=false;
          
          if(!datosLogin.isEmpty()){
              if(datosLogin.containsKey(email)){
@@ -173,7 +173,7 @@ public class ModeloServidor extends Thread {
                  }
              }
          }
-      return isdatos_login;     
+      return esta_registrado;     
     }
     
 }

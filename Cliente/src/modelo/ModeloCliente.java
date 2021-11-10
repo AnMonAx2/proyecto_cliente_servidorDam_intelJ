@@ -121,7 +121,7 @@ public class ModeloCliente extends Thread {
        
                 String [] str=mensaje.split(SEPARADOR);
                 String protocolo=str[0];
-                String respuesta=str[1];
+                String respuesta=str[1]; // del servidor
 
 
             switch(protocolo){

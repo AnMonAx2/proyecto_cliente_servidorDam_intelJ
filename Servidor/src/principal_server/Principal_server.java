@@ -6,7 +6,9 @@
 package principal_server;
 
 import controlador.ControladorServidor;
+import java.util.TreeSet;
 import modelo.ModeloServidor;
+import sun.reflect.generics.tree.Tree;
 import vista.IVista;
 import vista.VistaJFrame;
 
@@ -22,13 +24,14 @@ public class Principal_server {
     public static void main(String[] args) {
         VistaJFrame vista = new VistaJFrame();
         ModeloServidor modelo = new ModeloServidor();
-        
+
         ControladorServidor controlador = new ControladorServidor(vista, modelo);
         
         vista.setControlador(controlador);
         modelo.setControlador(controlador);
         
         controlador.arrancar();
+        
     }
     
 }

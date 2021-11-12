@@ -52,7 +52,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
         txt_pw = new javax.swing.JTextField();
         jPanel_respuesta_servidor = new javax.swing.JPanel();
         jLabel_login_error = new javax.swing.JLabel();
-        jPanel_register = new javax.swing.JPanel();
+        jPanel_botones = new javax.swing.JPanel();
         jButtonEnviar = new javax.swing.JButton();
         jButton_registro = new javax.swing.JButton();
 
@@ -134,22 +134,22 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
             }
         });
 
-        javax.swing.GroupLayout jPanel_registerLayout = new javax.swing.GroupLayout(jPanel_register);
-        jPanel_register.setLayout(jPanel_registerLayout);
-        jPanel_registerLayout.setHorizontalGroup(
-            jPanel_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_registerLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_botonesLayout = new javax.swing.GroupLayout(jPanel_botones);
+        jPanel_botones.setLayout(jPanel_botonesLayout);
+        jPanel_botonesLayout.setHorizontalGroup(
+            jPanel_botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_botonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jButtonEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel_registerLayout.setVerticalGroup(
-            jPanel_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_registerLayout.createSequentialGroup()
+        jPanel_botonesLayout.setVerticalGroup(
+            jPanel_botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_botonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel_registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel_botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -171,7 +171,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jPanel_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel_botones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -197,7 +197,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
                 .addGap(33, 33, 33)
                 .addComponent(jPanel_respuesta_servidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel_botones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
 
@@ -238,7 +238,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
     private void jButtonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarActionPerformed
         // TODO add your handling code here:
         jButtonEnviar.setActionCommand(LOGIN);
-        jPanel_register.setVisible(false);
+        jPanel_botones.setVisible(false);
 
     }//GEN-LAST:event_jButtonEnviarActionPerformed
 
@@ -246,21 +246,21 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
         txt_email.setText("");
         jPanel_respuesta_servidor.setVisible(false);
         
-         jPanel_register.setVisible(true);
+         jPanel_botones.setVisible(true);
     }//GEN-LAST:event_txt_emailMouseClicked
 
     private void txt_pwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_pwMouseClicked
          txt_pw.setText("");
          jPanel_respuesta_servidor.setVisible(false);
          
-        jPanel_register.setVisible(true);
+        jPanel_botones.setVisible(true);
 
     }//GEN-LAST:event_txt_pwMouseClicked
 
     private void jButton_registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registroActionPerformed
         // TODO add your handling code here:
           jButton_registro.setActionCommand(REGISTER);
-          jPanel_register.setVisible(false);
+          jPanel_botones.setVisible(false);
     }//GEN-LAST:event_jButton_registroActionPerformed
 
 
@@ -271,31 +271,21 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
     private javax.swing.JLabel jLabel_login_error;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel_register;
+    private javax.swing.JPanel jPanel_botones;
     private javax.swing.JPanel jPanel_respuesta_servidor;
     private javax.swing.JLabel label_signIn;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_pw;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void habilitarEnviar() {
-        jButtonEnviar.setEnabled(true);
-        jButton_registro.setEnabled(true);
-    }
 
-    @Override
-    public void deshabilitarEnviar() {
-        jButtonEnviar.setEnabled(false);
-        jButton_registro.setEnabled(false);
-    }
 
     @Override
     public void mostrarRespuesta(String mensaje) {
         jPanel_respuesta_servidor.setVisible(true);
         jLabel_login_error.setText(mensaje);
         
-        jPanel_register.setVisible(false);
+        jPanel_botones.setVisible(false);
         
     }
 
@@ -303,7 +293,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
     public void resetLogin() {
         txt_email.setText("");
         txt_pw.setText("");
-        jPanel_register.setVisible(true);
+        jPanel_botones.setVisible(true);
         
       
         
@@ -323,7 +313,6 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
     }
     
     public void inicializar(){
-      //  jButtonEnviar.setActionCommand(LOGIN);
         jButtonEnviar.addActionListener(controlador);
         jButton_registro.addActionListener(controlador);
       

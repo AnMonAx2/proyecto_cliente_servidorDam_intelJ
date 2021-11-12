@@ -13,8 +13,6 @@ import controlador.ControladorCliente;
  */
 public interface IVista {
     
-    public void habilitarEnviar();
-    public void deshabilitarEnviar();
     public void mostrarRespuesta(String mensaje);
     public void resetLogin();
     public void setControlador(ControladorCliente controlador);

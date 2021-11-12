@@ -24,6 +24,7 @@ import static vista.IVista.*;
 import vista.VistaJFrame2al_loguear;
 import vista.VistaJFrame_PrincipalLogin;
 import static modelo.ProtocoloCliente.*;
+import vista.VistaJFrame_formularioRegistro;
 
 /**
  *
@@ -39,14 +40,17 @@ public class ModeloCliente extends Thread {
     private BufferedWriter bw;
   
     
-    private VistaJFrame_PrincipalLogin vista;
+    private VistaJFrame_PrincipalLogin vista_login;
+   
     
     // constructor , getter & Setter
 
     public ModeloCliente(IVista vista) {
-        this.vista = (VistaJFrame_PrincipalLogin) vista;
+        this.vista_login = (VistaJFrame_PrincipalLogin) vista; 
         
     }
+
+   
 
     public Socket getSocket() {
         return socket;
@@ -122,22 +126,32 @@ public class ModeloCliente extends Thread {
                 String [] str=mensaje.split(SEPARADOR);
                 String protocolo=str[0];
                 String respuesta=str[1]; // del servidor
-
+               
+                System.out.println("recibirMensaje "+mensaje);
 
             switch(protocolo){
                     
-                       case LOGIN_OK:                          
+                       case LOGIN_OK:   // crea new Jframe y lo abre                        
                            controlador.vista_muestra_msg(respuesta);                                               
-                           VistaJFrame2al_loguear form=new VistaJFrame2al_loguear();// creo new frame
-                           form.setVisible(true);//muestra
-                           vista.dispose();   // cierro del actual                       
+                           VistaJFrame2al_loguear vista_login_ok=new VistaJFrame2al_loguear();// creo new frame
+                           vista_login_ok.setVisible(true);//--- pendiente con interface M
+                           vista_login.cerrar();// cierro del actual                       
                           break;
                        case LOGIN_NOT_OK:
                            controlador.vista_muestra_msg(respuesta);                          
                           break; 
-                       case REGISTER:
-                           controlador.vista_muestra_msg(respuesta);                          
+                       case REGISTER: // crea new Jframe y lo abre    
+                           controlador.vista_muestra_msg(respuesta); 
+                           VistaJFrame_formularioRegistro frame_register=new  VistaJFrame_formularioRegistro ();
+                           frame_register.setControlador(controlador);
+                           frame_register.inicializar();
+                           frame_register.hacerVisible();
+                           
                           break; 
+                        case REGISTER_FORM:
+                           controlador.vista_muestra_msg(respuesta); 
+                                              
+                          break;    
                                  
                               
                     default:

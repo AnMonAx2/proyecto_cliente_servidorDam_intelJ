@@ -31,9 +31,9 @@ public class ControladorCliente implements ActionListener {
         vista.hacerVisible();
         vista.inicializar(); 
                
-        if( modelo.conectarConElServidor()){
-            modelo.crearFlujos();
-            modelo.start();
+        if( modelo.conectarConElServidor()){ // si ha cionectado con server
+            modelo.crearFlujos();// crea los flujos
+            modelo.start();// arranco el hilo del cliente
        }else{
             JOptionPane.showMessageDialog(null, "imposible conectar ");
             vista.cerrar();
@@ -51,10 +51,15 @@ public class ControladorCliente implements ActionListener {
                  mensaje=LOGIN+SEPARADOR+vista.getMensajeAEnviar();// login:email:pw
                  modelo.enviarMensaje(mensaje);
                 break;
-            case REGISTER:  
+            case REGISTER: 
                  mensaje=REGISTER+SEPARADOR;
                  modelo.enviarMensaje(mensaje);
-                break;    
+                 break;  
+             case REGISTER_FORM:  
+                 System.out.println("entra form");
+                 mensaje=REGISTER_FORM+SEPARADOR;
+                 modelo.enviarMensaje(mensaje);
+                 break; 
         }
     }
     

@@ -8,6 +8,7 @@ import controlador.ControladorCliente;
 import modelo.ModeloCliente;
 import vista.IVista;
 import vista.VistaJFrame_PrincipalLogin;
+import vista.VistaJFrame_formularioRegistro;
 
 /**
  *

@@ -20,4 +20,6 @@ public class ProtocoloServer {
     final static String LOGIN_OK = "LOGIN_OK";
     final static String LOGIN_NOT_OK = "LOGIN_NOT_OK";
     
+    public final static String REGISTER_FORM="REGISTER_FORM";
+    
 }

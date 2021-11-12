@@ -30,7 +30,7 @@ public class ControladorServidor implements ActionListener {
         modelo.esperarAlCliente();
         vista.mostrarRespuesta("Esperando al cliente...");
         modelo.crearFlujos();
-        modelo.start();
+        modelo.start(); 
     }
 
     @Override

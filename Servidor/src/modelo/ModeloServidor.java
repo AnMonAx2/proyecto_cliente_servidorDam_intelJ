@@ -161,6 +161,12 @@ public class ModeloServidor extends Thread {
                    enviarMensaje(REGISTER+SEPARADOR+" Registrando pendiente");
                    
               }
+              
+               else if(str[0].equals(REGISTER_FORM) ){
+                   System.out.println("REGISTER_FORM");
+                   enviarMensaje(REGISTER_FORM+SEPARADOR+" Registrado OK");
+                   
+              }
              
          
         }

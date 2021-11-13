@@ -41,7 +41,9 @@ public class ControladorCliente implements ActionListener {
       
     }
 
-    // cuando se haya pulsado un boton entra en el switch 
+    // cliente envia datos o hace peticion
+    // depende de la palabra-protocolo entra en witch
+    // envio la peticion al servidor
     @Override
     public void actionPerformed(ActionEvent e) {
         String mensaje;
@@ -55,9 +57,8 @@ public class ControladorCliente implements ActionListener {
                  mensaje=REGISTER+SEPARADOR;
                  modelo.enviarMensaje(mensaje);
                  break;  
-             case REGISTER_FORM:  
-                 System.out.println("entra form");
-                 mensaje=REGISTER_FORM+SEPARADOR;
+             case REGISTER_FORM:                
+                 mensaje=REGISTER_FORM+SEPARADOR + modelo.getVista_register().getMensajeAEnviar();
                  modelo.enviarMensaje(mensaje);
                  break; 
         }

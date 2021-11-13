@@ -15,7 +15,7 @@ import vista.VistaJFrame_formularioRegistro;
  * @author sinNombre
 
  */
-public class Principal {
+public class Main_cliente {
 
     /**
      * @param args the command line arguments

@@ -28,7 +28,7 @@ public class VistaJFrame_formularioRegistro extends javax.swing.JFrame implement
      */
     public VistaJFrame_formularioRegistro() {
         initComponents();
-        centreWindow(this);
+        centreWindow();
        
     }
 
@@ -288,7 +288,6 @@ public class VistaJFrame_formularioRegistro extends javax.swing.JFrame implement
     private void jButton_registro_formActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registro_formActionPerformed
         // TODO add your handling code here:
          jButton_registro_form.setActionCommand(REGISTER_FORM);
-         System.out.println("comando "+jButton_registro_form.getActionCommand());
     }//GEN-LAST:event_jButton_registro_formActionPerformed
 
 
@@ -346,16 +345,14 @@ public class VistaJFrame_formularioRegistro extends javax.swing.JFrame implement
     @Override
     public void inicializar(){
         jButton_registro_form.addActionListener(controlador);
-       // jButton_registro_form.setActionCommand(REGISTER_FORM);
-      
     }
 
-    // si uno de los dos campos estan vacio / ambos o PENDIENTE COMPROBAR FORMATO email y min longitud PW
+   
     @Override
     public String getMensajeAEnviar() {
         if(txt_telefono.getText().isEmpty() || txt_nick.getText().isEmpty()||
                 txt_email.getText().isEmpty() || txt_name.getText().isEmpty()){
-            resetLogin();
+            //resetLogin();
             return NULLA;
         }else{
           return txt_name.getText()+SEPARADOR+txt_email.getText()+SEPARADOR+
@@ -371,15 +368,21 @@ public class VistaJFrame_formularioRegistro extends javax.swing.JFrame implement
          this.dispose();
     }
 
-
+    @Override
+    public void centreWindow() {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x, y);
+    }
     
     
-   public static void centreWindow(Window frame) {
+/*   public static void centreWindow(Window frame) {
     Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
     int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
     frame.setLocation(x, y);
-}
+}*/
 
     private void mostrarPanelRespuesta_y_ocultarPanelBotones() {
         jPanel_respuesta_servidor.setVisible(false);

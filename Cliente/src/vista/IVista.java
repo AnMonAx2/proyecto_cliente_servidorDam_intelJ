@@ -20,4 +20,5 @@ public interface IVista {
     public void inicializar();
     public String getMensajeAEnviar();
     public void cerrar();
+    public void centreWindow();
 }

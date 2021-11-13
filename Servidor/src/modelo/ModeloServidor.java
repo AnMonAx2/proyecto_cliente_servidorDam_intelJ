@@ -122,7 +122,7 @@ public class ModeloServidor extends Thread {
     
     
     
-    //pendiente modificar a SWITCH
+    //servidor procesa la peticion recibido del cliente
     public void run(){
         while(true){
              String mensaje = recibirMensaje();
@@ -131,8 +131,15 @@ public class ModeloServidor extends Thread {
                
                        
               if(str.length==2 && str[1].equals(NULLA)){// login : NULLA
-                    enviarMensaje(LOGIN_NOT_OK+SEPARADOR+" CAMPOS estan vacio "+contador);                          
+                  
+                  if(str[0].equals(LOGIN)){
+                      enviarMensaje(LOGIN_NOT_OK+SEPARADOR+" CAMPOS estan vacio "+contador);                          
                           contador++;
+                  } if(str[0].equals(REGISTER_FORM)){
+                      enviarMensaje(REGISTER_FORM+SEPARADOR+" CAMPOS formulario no pueden estar vacio ");                          
+                          
+                  }
+                    
               }
               else if(str[0].equals(LOGIN) && str.length==3){// LOGIN:email:pw
                    
@@ -152,19 +159,24 @@ public class ModeloServidor extends Thread {
                    
                    
               } else if(str[0].equals(LOGIN_NOT_OK) ){
-                   enviarMensaje(LOGIN_NOT_OK+SEPARADOR+" no han enviado datos "+contador);
+                   enviarMensaje(LOGIN_NOT_OK+SEPARADOR+" No han enviado datos "+contador);
                    contador++;
               }
                           
               
               else if(str[0].equals(REGISTER) ){
-                   enviarMensaje(REGISTER+SEPARADOR+" Registrando pendiente");
+                   enviarMensaje(REGISTER+SEPARADOR+" Registro en curso..");
                    
               }
               
                else if(str[0].equals(REGISTER_FORM) ){
-                   System.out.println("REGISTER_FORM");
-                   enviarMensaje(REGISTER_FORM+SEPARADOR+" Registrado OK");
+                   enviarMensaje(REGISTER_FORM+SEPARADOR+" Registrado OK-pendiente meter datos en la bd");
+                   String nombre=str[1];
+                   String email=str[2];
+                   String telefono=str[3];
+                   String nick=str[4];
+                   controlador.vista_muestra_msg("El cliente dice: " + str[1]+"\t "+
+                           str[2]+"\t "+ str[3]+"\t "+ str[4]+"\t ");
                    
               }
              

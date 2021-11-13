@@ -31,7 +31,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
      */
     public VistaJFrame_PrincipalLogin() {
         initComponents();
-        centreWindow(this);
+        centreWindow();
        
     }
 
@@ -261,6 +261,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
         // TODO add your handling code here:
           jButton_registro.setActionCommand(REGISTER);
           jPanel_botones.setVisible(false);
+          resetLogin();
     }//GEN-LAST:event_jButton_registroActionPerformed
 
 
@@ -338,13 +339,19 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
     }
 
 
+    @Override
+    public void centreWindow() {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x, y);
+    }
     
-    
-   public static void centreWindow(Window frame) {
+/*   public static void centreWindow(Window frame) {
     Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
     int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
     frame.setLocation(x, y);
-}
+}*/
 
 }

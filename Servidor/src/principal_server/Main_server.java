@@ -8,7 +8,7 @@ package principal_server;
 import controlador.ControladorServidor;
 import java.util.TreeSet;
 import modelo.ModeloServidor;
-import sun.reflect.generics.tree.Tree;
+
 import vista.IVista;
 import vista.VistaJFrame;
 
@@ -16,7 +16,7 @@ import vista.VistaJFrame;
  *
  * @author sinNombre
  */
-public class Principal_server {
+public class Main_server {
 
     /**
      * @param args the command line arguments

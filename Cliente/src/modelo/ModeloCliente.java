@@ -21,10 +21,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import vista.IVista;
 import static vista.IVista.*;
-import vista.VistaJFrame2al_loguear;
+
 import vista.VistaJFrame_PrincipalLogin;
 import static modelo.ProtocoloCliente.*;
 import vista.VistaJFrame_formularioRegistro;
+import vista.VistaJFrame_menuAplicacion;
 
 /**
  *
@@ -41,7 +42,8 @@ public class ModeloCliente extends Thread {
   
     
     private VistaJFrame_PrincipalLogin vista_login;
-   
+    private VistaJFrame_formularioRegistro vista_register;
+    private VistaJFrame_menuAplicacion vista_menu;
     
     // constructor , getter & Setter
 
@@ -119,6 +121,10 @@ public class ModeloCliente extends Thread {
         return "";
     }
     
+    
+
+    // recibe la respuesto del servidor- depende de la primera palabra-protocolo determina
+    // donde/ el frame q se muestra
     public void run(){
         while(true){
             String mensaje = recibirMensaje();
@@ -133,8 +139,10 @@ public class ModeloCliente extends Thread {
                     
                        case LOGIN_OK:   // crea new Jframe y lo abre                        
                            controlador.vista_muestra_msg(respuesta);                                               
-                           VistaJFrame2al_loguear vista_login_ok=new VistaJFrame2al_loguear();// creo new frame
-                           vista_login_ok.setVisible(true);//--- pendiente con interface M
+                           vista_menu=new VistaJFrame_menuAplicacion();// creo new frame
+                           vista_menu.setControlador(controlador);
+                           vista_menu.inicializar();
+                           vista_menu.hacerVisible();
                            vista_login.cerrar();// cierro del actual                       
                           break;
                        case LOGIN_NOT_OK:
@@ -142,14 +150,15 @@ public class ModeloCliente extends Thread {
                           break; 
                        case REGISTER: // crea new Jframe y lo abre    
                            controlador.vista_muestra_msg(respuesta); 
-                           VistaJFrame_formularioRegistro frame_register=new  VistaJFrame_formularioRegistro ();
-                           frame_register.setControlador(controlador);
-                           frame_register.inicializar();
-                           frame_register.hacerVisible();
+                           vista_register=new  VistaJFrame_formularioRegistro ();
+                           vista_register.setControlador(controlador);
+                           vista_register.inicializar();
+                           vista_register.hacerVisible();
                            
                           break; 
-                        case REGISTER_FORM:
-                           controlador.vista_muestra_msg(respuesta); 
+                        case REGISTER_FORM:                           
+                           vista_register.mostrarRespuesta(respuesta);
+                           //controlador.vista_muestra_msg(respuesta); 
                                               
                           break;    
                                  
@@ -161,4 +170,10 @@ public class ModeloCliente extends Thread {
         
         }
     }
+
+    public VistaJFrame_formularioRegistro getVista_register() {
+        return vista_register;
+    }
+    
+    
 }

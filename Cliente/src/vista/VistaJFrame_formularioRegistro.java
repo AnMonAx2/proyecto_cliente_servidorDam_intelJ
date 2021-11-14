@@ -6,6 +6,8 @@
 package vista;
 
 import controlador.ControladorCliente;
+import controlador.Controlador_datosRecibidos;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.Window;
@@ -23,12 +25,14 @@ import static modelo.ProtocoloCliente.*;
  */
 public class VistaJFrame_formularioRegistro extends javax.swing.JFrame implements IVista {
     ControladorCliente controlador;
+    Controlador_datosRecibidos controladordata;
     /**
      * Creates new form VistaJFrame
      */
     public VistaJFrame_formularioRegistro() {
         initComponents();
         centreWindow();
+        controladordata=new Controlador_datosRecibidos();
        
     }
 
@@ -354,9 +358,14 @@ public class VistaJFrame_formularioRegistro extends javax.swing.JFrame implement
                 txt_email.getText().isEmpty() || txt_name.getText().isEmpty()){
             //resetLogin();
             return NULLA;
-        }else{
-          return txt_name.getText()+SEPARADOR+txt_email.getText()+SEPARADOR+
-                  txt_telefono.getText()+SEPARADOR+txt_nick.getText();
+        }else{ // se comprueba que los datos introducidos son validos
+            if(controladordata.comprobarDatos(txt_name.getText(),txt_email.getText(),
+                    txt_telefono.getText(),txt_nick.getText())){
+                return txt_name.getText()+SEPARADOR+txt_email.getText()+SEPARADOR+
+                        txt_telefono.getText()+SEPARADOR+txt_nick.getText();
+            }else{
+                return NULLA;
+            }
     }
             
         

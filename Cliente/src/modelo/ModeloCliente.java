@@ -158,8 +158,9 @@ public class ModeloCliente extends Thread {
                           break; 
                         case REGISTER_FORM:                           
                            vista_register.mostrarRespuesta(respuesta);
-                           //controlador.vista_muestra_msg(respuesta); 
-                                              
+                           vista_register.cerrar();
+                           vista_login.mostrarRespuesta("Introduce nuevamente los datos ");
+                           //controlador.vista_muestra_msg(respuesta); //NO
                           break;    
                                  
                               

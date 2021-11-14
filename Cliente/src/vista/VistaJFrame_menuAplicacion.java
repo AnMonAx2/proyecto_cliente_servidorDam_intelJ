@@ -25,7 +25,7 @@ import static modelo.ProtocoloCliente.*;
  */
 public class VistaJFrame_menuAplicacion extends javax.swing.JFrame implements IVista {
     ControladorCliente controlador;
-    Controlador_datosRecibidos controladordata=new Controlador_datosRecibidos();
+
     /**
      * Creates new form VistaJFrame
      */
@@ -306,25 +306,9 @@ public class VistaJFrame_menuAplicacion extends javax.swing.JFrame implements IV
    
     @Override
     public String getMensajeAEnviar() {
-        if(txt_telefono.getText().isEmpty() || txt_nick.getText().isEmpty()||
-                txt_email.getText().isEmpty() || txt_name.getText().isEmpty()){
-            //resetLogin();
-            return NULLA;
-        }else{// si devuelve true= datos introducidos son correctos
-            if(controladordata.comprobarDatos(txt_name.getText(),txt_email.getText(),
-                    txt_telefono.getText(),txt_nick.getText())){
-                return txt_name.getText()+SEPARADOR+txt_email.getText()+SEPARADOR+
-                        txt_telefono.getText()+SEPARADOR+txt_nick.getText();
-            }else{
-                return NULLA;
-            }
+        return  "hola";
 
     }
-            
-        
-      
-    }
-
 
     @Override
     public void cerrar() {
@@ -339,10 +323,6 @@ public class VistaJFrame_menuAplicacion extends javax.swing.JFrame implements IV
         this.setLocation(x, y);
     }
 
-
-/*    public static void centreWindow(Window frame) {
-
-}*/
 
     private void mostrarPanelRespuesta_y_ocultarPanelBotones() {
         jPanel_respuesta_servidor.setVisible(false);

@@ -19,10 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static vista.IVista.*;
+
 import static modelo.ProtocoloServer.*;
 
 /**
@@ -38,7 +37,7 @@ public class ModeloServidor extends Thread {
     private BufferedWriter bw;
     private int contador=1;
     //private TreeSet<Socket> treeSocket_clientes;
-    private List <Socket> listSDocket=new ArrayList();
+    private List <Socket> listSocket =new ArrayList();// !! meter otro tipo lista
    
     
     private Map<String, String> datosLogin=new TreeMap();
@@ -68,7 +67,7 @@ public class ModeloServidor extends Thread {
         try {
             socket = ss.accept();
             //treeSocket_clientes.add(socket); // add el socket del cliente 
-            listSDocket.add(socket);
+            listSocket.add(socket);
             System.out.println("socket cliente "+socket);
         } catch (IOException ex) {
             Logger.getLogger(ModeloServidor.class.getName()).log(Level.SEVERE, null, ex);
@@ -177,6 +176,8 @@ public class ModeloServidor extends Thread {
                    String nick=str[4];
                    controlador.vista_muestra_msg("El cliente dice: " + str[1]+"\t "+
                            str[2]+"\t "+ str[3]+"\t "+ str[4]+"\t ");
+
+                   // crear obj cliente y add bd
                    
               }
              

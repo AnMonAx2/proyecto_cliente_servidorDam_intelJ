@@ -10,8 +10,7 @@ import controlador.Controlador_datosRecibidos;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.Window;
-import static modelo.ProtocoloCliente.*;
+
 
 
 /*
@@ -266,7 +265,8 @@ public class VistaJFrame_menuAplicacion extends javax.swing.JFrame implements IV
 
 
     @Override
-    public void mostrarRespuesta(String mensaje) {
+    public void mostrarRespuesta(String mensaje) { ;
+        System.out.println("mostrarRespuesta "+mensaje);
         jPanel_respuesta_servidor.setVisible(true);
         jLabel_login_error.setText(mensaje);
         

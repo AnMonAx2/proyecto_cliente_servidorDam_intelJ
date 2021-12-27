@@ -11,13 +11,15 @@ import controlador.ControladorServidor;
  *
  * @author sinNombre
  */
-public class VistaJFrame extends javax.swing.JFrame implements IVista {
+public class VistaJFrame_log_servidor extends javax.swing.JFrame implements IVista {
     ControladorServidor controlador;
     /**
      * Creates new form VistaJFrame
      */
-    public VistaJFrame() {
+    public VistaJFrame_log_servidor() {
+
         initComponents();
+        this.setName("LOG-SERVIDOR");
     }
 
     /**

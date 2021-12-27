@@ -7,6 +7,7 @@ public class Controlador_datosRecibidos {
 
     public boolean comprobarDatos(String text, String text1, String text2, String text3) {
         // `pendiente comprobar que el email/ telefono = valido
+        // o ya existe+---------------++++++-
         return true;
     }
 }

@@ -6,11 +6,13 @@
 package principal_server;
 
 import controlador.ControladorServidor;
-import java.util.TreeSet;
-import modelo.ModeloServidor;
+import modelo.Clase_compartida;
+import modelo.ModeloServidor_hilo;
 
-import vista.IVista;
-import vista.VistaJFrame;
+import vista.VistaJFrame_log_servidor;
+
+import java.io.IOException;
+import java.net.ServerSocket;
 
 /**
  *
@@ -21,17 +23,58 @@ public class Main_server {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        VistaJFrame vista = new VistaJFrame();
-        ModeloServidor modelo = new ModeloServidor();
+    public static void main(String[] args) throws IOException {
+        VistaJFrame_log_servidor vista = new VistaJFrame_log_servidor(); // la ventana del servidor
+        Clase_compartida clase_compartida=new Clase_compartida();
 
-        ControladorServidor controlador = new ControladorServidor(vista, modelo);
+        int port=19999;
+        ServerSocket ss=null;
+
+        try {
+            ss=new ServerSocket(port);
+        } catch (IOException e) {
+            System.err.println("IOException "+port);
+        }
+        System.out.println("<Server>: conected.. ");
+        ControladorServidor controlador;
+
+        boolean seguir=true;
+        while (seguir){
+            // para cada cliente se crea un hilo y se arranca en la class controlador
+
+            ModeloServidor_hilo modelo_hiloCl = new ModeloServidor_hilo(ss, clase_compartida);
+            controlador = new ControladorServidor(vista, modelo_hiloCl);
+            modelo_hiloCl.setControlador(controlador);
+
+            controlador.arrancar();
+
+        }
+
+        ss.close();
+
+
+
+
+
+
         
-        vista.setControlador(controlador);
-        modelo.setControlador(controlador);
-        
-        controlador.arrancar();
+       // vista.setControlador(controlador);
+
+
+
         
     }
+
+
     
 }
+
+/*    VistaJFrame vista = new VistaJFrame();
+    ModeloServidor_hilo modelo = new ModeloServidor_hilo();
+
+    ControladorServidor controlador = new ControladorServidor(vista, modelo);
+
+        vista.setControlador(controlador);
+                modelo.setControlador(controlador);
+
+                controlador.arrancar();*/

@@ -11,7 +11,7 @@ package modelo;
  */
 public class ProtocoloServer {
     final static String SEPARADOR = ":";
-              public final static String NULLA = "NULLA";
+    public final static String SIN_DATOS = "SIN_DATOS";
     
     final static String ENVIAR = "ENVIAR";
     final static String LOGIN = "LOGIN";
@@ -19,7 +19,8 @@ public class ProtocoloServer {
     
     final static String LOGIN_OK = "LOGIN_OK";
     final static String LOGIN_NOT_OK = "LOGIN_NOT_OK";
-    
+
+    final static String REGISTER_FORM_NOT_OK = "REGISTER_FORM_NOT_OK";
     public final static String REGISTER_FORM="REGISTER_FORM";
     
 }

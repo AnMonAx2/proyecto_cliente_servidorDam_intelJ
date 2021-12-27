@@ -324,14 +324,11 @@ public class VistaJFrame_formularioRegistro extends javax.swing.JFrame implement
 
     @Override
     public void resetLogin() {
-        txt_telefono.setText("");
-        txt_nick.setText("");
-        txt_email.setText("");
-        txt_name.setText("");
+        txt_telefono.setText("Your name");
+        txt_nick.setText("Your nick");
+        txt_email.setText("Your email");
+        txt_name.setText("Your name");
         jPanel_botones.setVisible(true);
-        
-      
-        
     }
 
     @Override
@@ -356,15 +353,16 @@ public class VistaJFrame_formularioRegistro extends javax.swing.JFrame implement
     public String getMensajeAEnviar() {
         if(txt_telefono.getText().isEmpty() || txt_nick.getText().isEmpty()||
                 txt_email.getText().isEmpty() || txt_name.getText().isEmpty()){
-            //resetLogin();
-            return NULLA;
+            resetLogin();
+            return SIN_DATOS;
         }else{ // se comprueba que los datos introducidos son validos
             if(controladordata.comprobarDatos(txt_name.getText(),txt_email.getText(),
                     txt_telefono.getText(),txt_nick.getText())){
                 return txt_name.getText()+SEPARADOR+txt_email.getText()+SEPARADOR+
                         txt_telefono.getText()+SEPARADOR+txt_nick.getText();
             }else{
-                return NULLA;
+                resetLogin();
+                return SIN_DATOS;
             }
     }
             

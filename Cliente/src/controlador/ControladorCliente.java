@@ -46,21 +46,23 @@ public class ControladorCliente implements ActionListener {
     // envio la peticion al servidor
     @Override
     public void actionPerformed(ActionEvent e) {
-        String mensaje;
-        System.out.println("\ne.getActionCommand() "+e.getActionCommand());
-        switch(e.getActionCommand()){
-            case LOGIN:  
+        String mensaje=e.getActionCommand();
+        System.out.println("\ne.getActionCommand() "+mensaje);
+
+        switch(mensaje){
+            case LOGIN:
                  mensaje=LOGIN+SEPARADOR+vista.getMensajeAEnviar();// login:email:pw
+                System.out.println(mensaje);
                  modelo.enviarMensaje(mensaje);
                 break;
-            case REGISTER: 
+            case REGISTER:
                  mensaje=REGISTER+SEPARADOR;
                  modelo.enviarMensaje(mensaje);
-                 break;  
-             case REGISTER_FORM:                
+                 break;
+             case REGISTER_FORM:
                  mensaje=REGISTER_FORM+SEPARADOR + modelo.getVista_register().getMensajeAEnviar();
                  modelo.enviarMensaje(mensaje);
-                 break; 
+                 break;
         }
     }
     

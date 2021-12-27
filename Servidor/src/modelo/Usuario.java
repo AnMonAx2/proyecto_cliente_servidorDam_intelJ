@@ -9,23 +9,23 @@ package modelo;
  *
  * @author sinNombre
  */
-public class Cliente {
+public class Usuario {
 
     private String nombre;
     private String nick;
     private String email;
     private String password;
 
-    public Cliente() {
+    public Usuario() {
 
     }
 
-    public Cliente(String email, String password) {
+    public Usuario(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public Cliente(String nombre, String nick, String email, String password) {
+    public Usuario(String nombre, String nick, String email, String password) {
         this.nombre = nombre;
         this.nick = nick;
         this.email = email;

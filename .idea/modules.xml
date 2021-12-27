@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/Servidor/Servidor.iml" filepath="$PROJECT_DIR$/Servidor/Servidor.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/proyecto_cliente_servidorDam_.iml" filepath="$PROJECT_DIR$/.idea/proyecto_cliente_servidorDam_.iml" />
       <module fileurl="file://$PROJECT_DIR$/prueba/prueba.iml" filepath="$PROJECT_DIR$/prueba/prueba.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taller_IntelliJ.iml" filepath="$PROJECT_DIR$/taller_IntelliJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taller_IntelliJ_.iml" filepath="$PROJECT_DIR$/taller_IntelliJ_.iml" />
     </modules>
   </component>
 </project>

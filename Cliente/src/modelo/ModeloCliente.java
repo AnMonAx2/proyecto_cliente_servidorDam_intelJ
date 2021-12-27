@@ -34,8 +34,8 @@ import vista.VistaJFrame_menuAplicacion;
 public class ModeloCliente extends Thread {
     private ControladorCliente controlador;
     private final int PUERTO = 19999;
-  //private final String HOST = "localhost";
-   private final String HOST ="192.168.1.137";
+  private final String HOST = "localhost";
+  // private final String HOST ="192.168.1.137";
     private Socket socket;
     private BufferedReader br;
     private BufferedWriter bw;
@@ -131,40 +131,48 @@ public class ModeloCliente extends Thread {
        
                 String [] str=mensaje.split(SEPARADOR);
                 String protocolo=str[0];
-                String respuesta=str[1]; // del servidor
+                String respuesta_servidor=str[1]; // del servidor
                
                 System.out.println("recibirMensaje "+mensaje);
 
             switch(protocolo){
                     
                        case LOGIN_OK:   // crea new Jframe y lo abre                        
-                           controlador.vista_muestra_msg(respuesta);                                               
+                           controlador.vista_muestra_msg(respuesta_servidor);
                            vista_menu=new VistaJFrame_menuAplicacion();// creo new frame
                            vista_menu.setControlador(controlador);
                            vista_menu.inicializar();
                            vista_menu.hacerVisible();
+                           vista_menu.mostrarRespuesta(respuesta_servidor);
                            vista_login.cerrar();// cierro del actual                       
                           break;
                        case LOGIN_NOT_OK:
-                           controlador.vista_muestra_msg(respuesta);                          
-                          break; 
-                       case REGISTER: // crea new Jframe y lo abre    
-                           controlador.vista_muestra_msg(respuesta); 
+                           controlador.vista_muestra_msg(respuesta_servidor);
+                          break;
+
+                       case REGISTER: //ha pulsado el boton registrar. se crea y abre ventana registro
+                           controlador.vista_muestra_msg(respuesta_servidor);
                            vista_register=new  VistaJFrame_formularioRegistro ();
                            vista_register.setControlador(controlador);
                            vista_register.inicializar();
                            vista_register.hacerVisible();
-                           
-                          break; 
-                        case REGISTER_FORM:                           
-                           vista_register.mostrarRespuesta(respuesta);
+                          break;
+
+                        case REGISTER_FORM_NOT_OK:// ha enviado campos vacio/ erroneos
+                            vista_register.mostrarRespuesta(respuesta_servidor);
+                            break;
+
+                        case REGISTER_FORM: // datos son correctos, se  cierra la ventana con formulario , se abre ventana login
+                           vista_register.mostrarRespuesta(respuesta_servidor);
                            vista_register.cerrar();
                            vista_login.mostrarRespuesta("Introduce nuevamente los datos ");
-                           //controlador.vista_muestra_msg(respuesta); //NO
-                          break;    
-                                 
-                              
-                    default:
+                           //controlador.vista_muestra_msg(respuesta_servidor); //NO
+                          break;
+
+
+
+
+                default:
                           controlador.vista_muestra_msg("algo salio mal"); 
                         break;
                        }      

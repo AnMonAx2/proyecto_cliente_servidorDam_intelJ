@@ -7,7 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.ModeloServidor;
+import modelo.ModeloServidor_hilo;
 import vista.IVista;
 
 /**
@@ -16,19 +16,19 @@ import vista.IVista;
  */
 public class ControladorServidor implements ActionListener {
     IVista vista;
-    ModeloServidor modelo;
+    ModeloServidor_hilo modelo;
 
-    public ControladorServidor(IVista vista, ModeloServidor modelo) {
+    public ControladorServidor(IVista vista, ModeloServidor_hilo modelo) {
         this.vista = vista;
         this.modelo = modelo;
     }
     
     public void arrancar(){
         vista.hacerVisible();      
-        modelo.abrirPuerto();
+       // modelo.abrirPuerto();
         vista.mostrarRespuesta("abriendo el puerto..."+modelo.getPUERTO());   
         modelo.esperarAlCliente();
-        vista.mostrarRespuesta("Esperando al cliente...");
+        vista.mostrarRespuesta("Conectando cliente..."+modelo.getSocket());
         modelo.crearFlujos();
         modelo.start(); 
     }

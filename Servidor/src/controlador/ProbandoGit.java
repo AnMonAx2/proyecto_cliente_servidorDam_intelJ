@@ -3,34 +3,8 @@ package controlador;/**
 */
 public class ProbandoGit {
     public static void main(String[] args) {
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local sin cambiossssss");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local sin cambiossssss");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local sin cambiossssss");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local sin cambiossssss");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local sin cambiossssss");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local sin cambiossssss");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local sin cambiossssss");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local");
-        System.out.println("Haciendo cambios en local sin cambiossssss");
+
+
 
     }
 }

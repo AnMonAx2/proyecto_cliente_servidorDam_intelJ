@@ -6,7 +6,7 @@
 package principal_server;
 
 import controlador.ControladorServidor;
-import modelo.Clase_compartida;
+import controlador.Clase_compartida;
 import modelo.ModeloServidor_hilo;
 
 import vista.VistaJFrame_log_servidor;
@@ -21,7 +21,7 @@ import java.net.ServerSocket;
 public class Main_server {
 
     /**
-     * @param args the command line arguments
+     * link comandos git https://viviryaprenderweb.com/10-comandos-git-esenciales-para-saber-por-donde-empezar/
      */
     public static void main(String[] args) throws IOException {
         VistaJFrame_log_servidor vista = new VistaJFrame_log_servidor(); // la ventana del servidor

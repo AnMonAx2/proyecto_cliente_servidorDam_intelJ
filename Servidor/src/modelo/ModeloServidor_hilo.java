@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import controlador.Clase_compartida;
 import controlador.ControladorServidor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,10 +16,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,13 +36,9 @@ public class ModeloServidor_hilo extends Thread {
     private BufferedWriter bw;
     private int contador=1; // para contar los fallos al loguear
 
-    private List <Socket> listSocket =new ArrayList();// !! meter otro tipo lista
-    private Map<String, String> datosLogin=new TreeMap();
-
     Clase_compartida clase_compartida;
 
     public ModeloServidor_hilo(ServerSocket ss,  Clase_compartida cc ){
-         datosLogin.put("a", "a");
          this.serverSocket =ss;
          this.clase_compartida=cc;
     }
@@ -61,9 +54,8 @@ public class ModeloServidor_hilo extends Thread {
     public void esperarAlCliente(){
         try {
             socket = serverSocket.accept();
-            listSocket.add(socket);// add el socket cl al listado
-            System.out.println("socket cliente "+socket);
-            System.out.println("cliente conectados "+listSocket.size());
+            clase_compartida.listSocketAdd(socket);// add el socket cl al listado
+
         } catch (IOException ex) {
             Logger.getLogger(ModeloServidor_hilo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -98,9 +90,10 @@ public class ModeloServidor_hilo extends Thread {
     public String recibirMensaje(){
         try {
             String mensaje = br.readLine();
-            return mensaje;
+            if(!mensaje.isEmpty()|| mensaje.getBytes().length==0)
+                return mensaje;
         } catch (IOException ex) {
-            Logger.getLogger(ModeloServidor_hilo.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("IOException recibirMensaje "+ex.getMessage());
         }
         return "";
     }
@@ -120,7 +113,7 @@ public class ModeloServidor_hilo extends Thread {
         while(true){
              String mensaje = recibirMensaje();
              System.out.println("mensaje = "+mensaje);
-             if(!mensaje.isEmpty()){
+             if(mensaje!=null){
                  controlador.vista_muestra_msg("mensaje recibido "+mensaje);
                  System.out.println("mensaje recibido "+mensaje);
                  String [] str=mensaje.split(SEPARADOR);
@@ -144,7 +137,7 @@ public class ModeloServidor_hilo extends Thread {
 
                      controlador.vista_muestra_msg("El cliente dice: " + email+"\t pw "+pw);
 
-                     if(comprobarLogin(email, pw)){// aqui se comprueba q existe el usuario
+                     if(clase_compartida.comprobarLogin(email, pw)){// aqui se comprueba q existe el usuario
                          // login ok
                          enviarMensaje(LOGIN_OK+SEPARADOR+" ");
 
@@ -173,8 +166,10 @@ public class ModeloServidor_hilo extends Thread {
                      String nick=str[4];
                      controlador.vista_muestra_msg("El cliente dice: " + str[1]+"\t "+
                              str[2]+"\t "+ str[3]+"\t "+ str[4]+"\t ");
-
-                     // crear obj cliente y add bd
+                     // creo new Usuario
+                     Usuario usuario=new Usuario(str[1], str[2], str[3], str[4]);
+                     //llama M en la clase_compartida para guardar los datos cl+ el socket del mismo
+                     clase_compartida.addDatos_registroBD(usuario, getSocket());
 
                  }
 
@@ -182,21 +177,6 @@ public class ModeloServidor_hilo extends Thread {
          
         }
     }
-    
 
-    //!email.equals("") || !password.equals("")
-    private boolean comprobarLogin(String email, String password) {
-    
-        boolean esta_registrado=false;
-         
-         if(!datosLogin.isEmpty()){
-             if(datosLogin.containsKey(email)){
-                 if(datosLogin.get(email).equals(password)){
-                     return true;
-                 }
-             }
-         }
-      return esta_registrado;     
-    }
     
 }

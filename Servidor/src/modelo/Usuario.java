@@ -66,6 +66,11 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Data{" + "email=" + email + ", password=" + password + '}';
+        return "Usuario{" +
+                "nombre='" + nombre + '\'' +
+                ", nick='" + nick + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

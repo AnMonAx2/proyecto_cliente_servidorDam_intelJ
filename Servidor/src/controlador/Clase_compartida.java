@@ -46,7 +46,7 @@ public class Clase_compartida {
 
 
     public void addDatos_registroBD(Usuario usuario, Socket socket) {
-        datosLogin.put(usuario.getNick(), usuario.getPassword());
+        datosLogin.put(usuario.getNick(), usuario.getPw());
         System.out.println(usuario.toString());
         System.out.println(socket);
     }

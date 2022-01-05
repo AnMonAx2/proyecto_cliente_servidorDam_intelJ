@@ -13,39 +13,39 @@ public class Usuario {
 
     private String nombre;
     private String nick;
-    private String email;
-    private String password;
+    private String pw;
+    private String telefono;
 
     public Usuario() {
 
     }
 
-    public Usuario(String email, String password) {
-        this.email = email;
-        this.password = password;
+    public Usuario(String pw, String telefono) {
+        this.pw = pw;
+        this.telefono = telefono;
     }
 
-    public Usuario(String nombre, String nick, String email, String password) {
-        this.nombre = nombre;
+    public Usuario(String nick, String pw, String nombre, String telefono) {
         this.nick = nick;
-        this.email = email;
-        this.password = password;
+        this.pw = pw;
+        this.nombre = nombre;
+        this.telefono = telefono;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPw() {
+        return pw;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
-    public String getPassword() {
-        return password;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getNombre() {
@@ -69,8 +69,8 @@ public class Usuario {
         return "Usuario{" +
                 "nombre='" + nombre + '\'' +
                 ", nick='" + nick + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                ", pw='" + pw + '\'' +
+                ", telefono='" + telefono + '\'' +
                 '}';
     }
 }

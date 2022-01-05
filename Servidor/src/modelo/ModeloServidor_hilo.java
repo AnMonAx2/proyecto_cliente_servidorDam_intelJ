@@ -42,10 +42,7 @@ public class ModeloServidor_hilo extends Thread {
          this.serverSocket =ss;
          this.clase_compartida=cc;
     }
-    
-    
-    
-    
+
     public void setControlador(ControladorServidor controlador){
         this.controlador = controlador;
     }
@@ -112,10 +109,9 @@ public class ModeloServidor_hilo extends Thread {
     public void run(){
         while(true){
              String mensaje = recibirMensaje();
-             System.out.println("mensaje = "+mensaje);
-             if(mensaje!=null){
+             if(mensaje!=null || mensaje.length()!=0){
                  controlador.vista_muestra_msg("mensaje recibido "+mensaje);
-                 System.out.println("mensaje recibido "+mensaje);
+                 System.out.println("mensaje recibido "+mensaje.length());
                  String [] str=mensaje.split(SEPARADOR);
 
 
@@ -160,12 +156,12 @@ public class ModeloServidor_hilo extends Thread {
 
                  else if(str[0].equals(REGISTER_FORM) ){
                      enviarMensaje(REGISTER_FORM+SEPARADOR+" Registrado OK-pendiente meter datos en la bd");
-                     String nombre=str[1];
-                     String email=str[2];
-                     String telefono=str[3];
-                     String nick=str[4];
-                     controlador.vista_muestra_msg("El cliente dice: " + str[1]+"\t "+
-                             str[2]+"\t "+ str[3]+"\t "+ str[4]+"\t ");
+                     String nick=str[1];
+                     String pw=str[2];
+                     String nombre=str[3];
+                     String telefono=str[4];
+                     controlador.vista_muestra_msg("El cliente dice: " +nick+"\t "+
+                            pw+"\t "+nombre+"\t "+telefono +"\t ");
                      // creo new Usuario
                      Usuario usuario=new Usuario(str[1], str[2], str[3], str[4]);
                      //llama M en la clase_compartida para guardar los datos cl+ el socket del mismo

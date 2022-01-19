@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import modelo.ModeloCliente;
 import vista.IVista;
-import static modelo.ProtocoloCliente.*;
+import static modelo.ModeloProtocoloCliente.*;
 
 
 /**

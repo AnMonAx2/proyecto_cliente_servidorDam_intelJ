@@ -19,18 +19,18 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static modelo.ProtocoloServer.*;
+import static modelo.ModeloProtocoloServer.*;
 
 /**
  *
  * @author sinNombre
  */
-public class ModeloServidor_hilo extends Thread {
+public class ModeloServidor_hiloDelCliente extends Thread {
     private ControladorServidor controlador;
     private final int PUERTO = 19999;
 
     private Socket socket;
-    private ServerSocket serverSocket;
+    private final ServerSocket serverSocket;
 
     private BufferedReader br;
     private BufferedWriter bw;
@@ -38,7 +38,7 @@ public class ModeloServidor_hilo extends Thread {
 
     Clase_compartida clase_compartida;
 
-    public ModeloServidor_hilo(ServerSocket ss,  Clase_compartida cc ){
+    public ModeloServidor_hiloDelCliente(ServerSocket ss, Clase_compartida cc ){
          this.serverSocket =ss;
          this.clase_compartida=cc;
     }
@@ -54,7 +54,7 @@ public class ModeloServidor_hilo extends Thread {
             clase_compartida.listSocketAdd(socket);// add el socket cl al listado
 
         } catch (IOException ex) {
-            Logger.getLogger(ModeloServidor_hilo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloServidor_hiloDelCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -70,7 +70,7 @@ public class ModeloServidor_hilo extends Thread {
             OutputStreamWriter osw = new OutputStreamWriter(os);
             bw = new BufferedWriter(osw);
         } catch (IOException ex) {
-            Logger.getLogger(ModeloServidor_hilo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloServidor_hiloDelCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -80,7 +80,7 @@ public class ModeloServidor_hilo extends Thread {
             bw.newLine();
             bw.flush();
         } catch (IOException ex) {
-            Logger.getLogger(ModeloServidor_hilo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloServidor_hiloDelCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -169,6 +169,12 @@ public class ModeloServidor_hilo extends Thread {
 
                  }
 
+             }else{
+                 try {
+                     sleep(1000);
+                 } catch (InterruptedException e) {
+                     System.out.println("Hilo del cl ha sido Inter");
+                 }
              }
          
         }

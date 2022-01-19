@@ -9,7 +9,7 @@ package modelo;
  *
  * @author sinNombre
  */
-public class ProtocoloCliente {
+public class ModeloProtocoloCliente {
    public final static String SEPARADOR = ":";
    public final static String SIN_DATOS = "SIN_DATOS";
     

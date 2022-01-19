@@ -7,7 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.ModeloServidor_hilo;
+import modelo.ModeloServidor_hiloDelCliente;
 import vista.IVista;
 
 /**
@@ -16,9 +16,9 @@ import vista.IVista;
  */
 public class ControladorServidor implements ActionListener {
     IVista vista;
-    ModeloServidor_hilo modelo;
+    ModeloServidor_hiloDelCliente modelo;
 
-    public ControladorServidor(IVista vista, ModeloServidor_hilo modelo) {
+    public ControladorServidor(IVista vista, ModeloServidor_hiloDelCliente modelo) {
         this.vista = vista;
         this.modelo = modelo;
     }

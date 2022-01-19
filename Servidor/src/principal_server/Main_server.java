@@ -7,7 +7,7 @@ package principal_server;
 
 import controlador.ControladorServidor;
 import controlador.Clase_compartida;
-import modelo.ModeloServidor_hilo;
+import modelo.ModeloServidor_hiloDelCliente;
 
 import vista.VistaJFrame_log_servidor;
 
@@ -42,7 +42,7 @@ public class Main_server {
         while (seguir){
             // para cada cliente se crea un hilo y se arranca en la class controlador
 
-            ModeloServidor_hilo modelo_hiloCl = new ModeloServidor_hilo(ss, clase_compartida);
+            ModeloServidor_hiloDelCliente modelo_hiloCl = new ModeloServidor_hiloDelCliente(ss, clase_compartida);
             controlador = new ControladorServidor(vista, modelo_hiloCl);
             modelo_hiloCl.setControlador(controlador);
 

@@ -10,8 +10,8 @@ import controlador.Controlador_datosRecibidos;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.Window;
-import static modelo.ProtocoloCliente.*;
+
+import static modelo.ModeloProtocoloCliente.*;
 
 
 /*

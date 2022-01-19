@@ -8,8 +8,8 @@ package vista;
 import controlador.ControladorCliente;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.Window;
-import static modelo.ProtocoloCliente.*;
+
+import static modelo.ModeloProtocoloCliente.*;
 
 
 /*
@@ -32,7 +32,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
     public VistaJFrame_PrincipalLogin() {
         initComponents();
         centreWindow();
-       
+
     }
 
     /**
@@ -66,7 +66,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
         jLabel_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons8-usuario-de-género-neutro-50.png"))); // NOI18N
 
         label_signIn.setBackground(new java.awt.Color(229, 229, 229));
-        label_signIn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_signIn.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         label_signIn.setText("Sign in");
         label_signIn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -113,7 +113,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
         );
 
         jButtonEnviar.setBackground(new java.awt.Color(0, 153, 255));
-        jButtonEnviar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonEnviar.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         jButtonEnviar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEnviar.setText("LOGIN");
         jButtonEnviar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -124,7 +124,7 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
         });
 
         jButton_registro.setBackground(new java.awt.Color(0, 153, 255));
-        jButton_registro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton_registro.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         jButton_registro.setForeground(new java.awt.Color(255, 255, 255));
         jButton_registro.setText("REGISTER");
         jButton_registro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -133,6 +133,12 @@ public class VistaJFrame_PrincipalLogin extends javax.swing.JFrame implements IV
                 jButton_registroActionPerformed(evt);
             }
         });
+
+        //************************** NO FUNCIONA --- letra antes TAHOMA
+        jButtonEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonEnviar.setPreferredSize(new java.awt.Dimension(150, 40));
+        jButton_registro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_registro.setPreferredSize(new java.awt.Dimension(150, 40));
 
         javax.swing.GroupLayout jPanel_botonesLayout = new javax.swing.GroupLayout(jPanel_botones);
         jPanel_botones.setLayout(jPanel_botonesLayout);

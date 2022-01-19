@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 /**
  * created by sinNombre on dic., 25/12/2021☺
@@ -12,7 +13,7 @@ public class Taller_IntelliJ {
 
 
         int     metodo = metodo(7);
-
+        Pattern p= Pattern.compile("[A-Za-z]");
 
 
 

@@ -14,16 +14,13 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.InetAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import vista.IVista;
-import static vista.IVista.*;
 
 import vista.VistaJFrame_PrincipalLogin;
-import static modelo.ProtocoloCliente.*;
+import static modelo.ModeloProtocoloCliente.*;
 import vista.VistaJFrame_formularioRegistro;
 import vista.VistaJFrame_menuAplicacion;
 
